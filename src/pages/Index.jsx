@@ -26,7 +26,7 @@ const Index = () => {
           {filteredJobs.map(job => (
             <Box key={job.id} p={4} borderWidth="1px" borderRadius="md" width="100%">
               <Link to={`/job/${job.id}`}>
-                <Text fontSize="xl">{job.jobs_title}</Text>
+                <Text fontSize="xl">{job.job_title}</Text>
                 <Text fontSize="sm" color="gray.500">{job.job_area}</Text>
               </Link>
             </Box>
