@@ -1,12 +1,13 @@
 import { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { Container, VStack, HStack, Button, Box, Text, StackDivider } from "@chakra-ui/react";
 
 const jobs = [
-  { id: 1, title: "Frontend Developer", category: "Engineering" },
-  { id: 2, title: "Product Manager", category: "Product" },
-  { id: 3, title: "UX Designer", category: "Design" },
-  { id: 4, title: "Backend Developer", category: "Engineering" },
-  { id: 5, title: "UI Designer", category: "Design" },
+  { id: 1, title: "Frontend Developer", category: "Engineering", description: "Develop and maintain user interfaces." },
+  { id: 2, title: "Product Manager", category: "Product", description: "Oversee product development from start to finish." },
+  { id: 3, title: "UX Designer", category: "Design", description: "Design user experiences for our products." },
+  { id: 4, title: "Backend Developer", category: "Engineering", description: "Develop and maintain server-side logic." },
+  { id: 5, title: "UI Designer", category: "Design", description: "Design user interfaces for our products." },
 ];
 
 const Index = () => {
@@ -27,8 +28,10 @@ const Index = () => {
         <VStack spacing={4} divider={<StackDivider borderColor="gray.200" />} width="100%">
           {filteredJobs.map(job => (
             <Box key={job.id} p={4} borderWidth="1px" borderRadius="md" width="100%">
-              <Text fontSize="xl">{job.title}</Text>
-              <Text fontSize="sm" color="gray.500">{job.category}</Text>
+              <Link to={`/job/${job.id}`}>
+                <Text fontSize="xl">{job.title}</Text>
+                <Text fontSize="sm" color="gray.500">{job.category}</Text>
+              </Link>
             </Box>
           ))}
         </VStack>
